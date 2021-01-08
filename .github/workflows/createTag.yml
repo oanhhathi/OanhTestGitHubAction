@@ -24,11 +24,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      #DATE=$(date +%Y%m%d)
       - name: Get Date
         run: |
-          DATE=$(date)
-          // Set DATE vao Environment
-          echo "set-env::$DATE"
+          echo "RELEASEDATE=$(date +%Y%m%d)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
@@ -36,8 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: prod_release_${{ env.DATE }}
-          release_name: Production Release ${{ env.DATE }}
+          tag_name: prod_release_${{ RELEASEDATE }}
+          release_name: Production Release ${{ RELEASEDATE }}
           body: |
             Changes in this Release
             - First Change
