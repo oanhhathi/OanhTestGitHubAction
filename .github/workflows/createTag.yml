@@ -37,6 +37,7 @@ jobs:
         with:
           tag_name: prod_release_${{ env.RELEASE_DATE }}
           release_name: Production Release ${{ env.RELEASE_DATE }}
+          
           body: |
             Changes in this Release
             - First Change
