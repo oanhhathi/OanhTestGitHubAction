@@ -26,7 +26,7 @@ jobs:
 
       - name: Get Date
         run: |
-          DATE=$(date '+%Y%m%d')
+          DATE=$(date)
           // Set DATE vao Environment
           echo "set-env::$DATE"
 
