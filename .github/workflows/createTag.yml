@@ -22,7 +22,7 @@ jobs:
       - name: Setup timezone
         uses: zcong1993/setup-timezone@master
         with:
-          timezone: Asia/Tokyo
+          timezone: Asia/Ho_Chi_Minh
       #echo "RELEASE_DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
       - name: Get Date
         run: |
