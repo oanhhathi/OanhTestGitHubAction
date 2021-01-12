@@ -14,12 +14,19 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: Asia/Tokyo
+      #echo "RELEASE_DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
       - name: Get Date
         run: |
-          echo "RELEASE_DATE=$(date +%Y%m%d)" >> $GITHUB_ENV
+          echo "RELEASE_DATE=$(date "+%H:%M:%S%d/%m/%y")" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
